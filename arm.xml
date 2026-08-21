@@ -1,0 +1,61 @@
+<mujoco model="Robotic_Arm">
+  <compiler angle="radian" meshdir="meshes/"/>
+  <option gravity="0 0 0"/>
+
+  <asset>
+    <texture type="skybox" builtin="flat" rgb1="0.03 0.03 0.03" width="512" height="512"/>
+    <texture name="grid" type="2d" builtin="checker" rgb1="0.04 0.04 0.04" rgb2="0.04 0.04 0.04" width="512" height="512" mark="edge" markrgb="0.75 0.65 0.95"/>
+    <material name="grid_mat" texture="grid" texrepeat="12 12" reflectance="0.05" shininess="0.1"/>
+
+    <mesh name="base_link" content_type="model/stl" file="base_link.STL"/>
+    <mesh name="lowbase_link" content_type="model/stl" file="lowbase_link.STL"/>
+    <mesh name="shoulder_link" content_type="model/stl" file="shoulder_link.STL"/>
+    <mesh name="elbow_link" content_type="model/stl" file="elbow_link.STL"/>
+    <mesh name="diffleft_link" content_type="model/stl" file="diffleft_link.STL"/>
+    <mesh name="diffright_link" content_type="model/stl" file="diffright_link.STL"/>
+    <mesh name="wristpitch_link" content_type="model/stl" file="wristpitch_link.STL"/>
+    <mesh name="wristroll_link" content_type="model/stl" file="wristroll_link.STL"/>
+  </asset>
+
+  <worldbody>
+    <light pos="0 0 3" dir="0 0 -1" directional="true" diffuse="0.65 0.65 0.65" specular="0.15 0.15 0.15"/>
+    <geom name="floor" type="plane" size="2 2 0.05" material="grid_mat"/>
+
+    <geom type="mesh" rgba="0.894118 0.894118 0.894118 1" mesh="base_link"/>
+    <body name="lowbase_link" pos="0.146428 -0.345313 0.0226486">
+      <inertial pos="-0.00103241 -0.031725 0.0555417" quat="0.936617 0.34937 0.0218527 -0.0145841" mass="0.200481" diaginertia="0.000192936 0.000173802 8.28951e-05"/>
+      <joint name="Arm Base" pos="0 0 0" axis="0 0 -1"/>
+      <geom type="mesh" rgba="0.717647 0.8 1 1" mesh="lowbase_link"/>
+      <body name="shoulder_link" pos="-0.00292626 -0.0206842 0.082" quat="0.496677 -0.496677 -0.503301 0.503301">
+        <inertial pos="-0.0200971 -0.0788273 0.0426036" quat="0.558361 0.434862 -0.553421 0.439151" mass="0.214666" diaginertia="0.00148512 0.0014407 6.35663e-05"/>
+        <joint name="Arm_shoulder" pos="0 0 0" axis="0 0 1"/>
+        <geom type="mesh" rgba="0.866667 1 0.913725 1" mesh="shoulder_link"/>
+        <body name="elbow_link" pos="-0.0510685 -0.213991 0.03085">
+          <inertial pos="0.0647009 -0.0399688 -0.0397338" quat="0.19615 0.703369 -0.189687 0.656366" mass="0.457257" diaginertia="0.00202696 0.00201312 0.000142186"/>
+          <joint name="Arm_elbow" pos="0 0 0" axis="0 0 1"/>
+          <geom type="mesh" rgba="0.980392 1 0.780392 1" mesh="elbow_link"/>
+          <body name="diffleft_link" pos="0.187087 -0.115752 0" quat="0 0 0 -1">
+            <inertial pos="-7.1082e-06 -2.51767e-06 -0.0145343" quat="0.408479 0.578004 -0.407323 0.577186" mass="0.0113875" diaginertia="1.33806e-06 7.83469e-07 7.83394e-07"/>
+            <joint name="Arm_leftwrist" pos="0 0 0" axis="0 0 -1"/>
+            <geom type="mesh" rgba="0.894118 0.894118 0.894118 1" mesh="diffleft_link"/>
+          </body>
+          <body name="diffright_link" pos="0.18709 -0.11575 -0.077706" quat="-3.67321e-06 1 0 0">
+            <inertial pos="-2.13927e-06 -7.23097e-06 -0.014899" quat="0.101827 0.699939 -0.100425 0.699736" mass="0.0113875" diaginertia="1.33806e-06 7.83469e-07 7.83394e-07"/>
+            <joint name="Arm_Rightwrist" pos="0 0 0" axis="0 0 1"/>
+            <geom type="mesh" rgba="0.752941 0.752941 0.752941 1" mesh="diffright_link"/>
+          </body>
+          <body name="wristpitch_link" pos="0.18709 -0.11575 -0.077706" quat="-3.67321e-06 1 0 0">
+            <inertial pos="0.00103659 0.000993681 -0.0395274" quat="0.277232 0.650546 -0.277285 0.65042" mass="0.00504446" diaginertia="4.88229e-07 4.74574e-07 4.71516e-07"/>
+            <joint name="Arm_wristoutput" pos="0 0 0" axis="0 0 -1"/>
+            <geom type="mesh" rgba="0.894118 0.894118 0.894118 1" mesh="wristpitch_link"/>
+            <body name="wristroll_link" pos="0.014584 0.013981 -0.039203" quat="0.656102 -0.263681 0.656105 0.263682">
+              <inertial pos="7.09141e-11 -1.74221e-11 -0.00322126" quat="0.5 0.5 -0.5 0.5" mass="0.00558888" diaginertia="7.6749e-07 4.12051e-07 4.12051e-07"/>
+              <joint name="Arm_wristroll" pos="0 0 0" axis="0 0 -1"/>
+              <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="wristroll_link"/>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+</mujoco>
