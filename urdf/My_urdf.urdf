@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="New_urdf">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.14787251207519 -0.329158121743457 -0.0103364497445228"
+        rpy="0 0 0" />
+      <mass
+        value="0.265599862900725" />
+      <inertia
+        ixx="0.000397783586058909"
+        ixy="6.20532140630872E-09"
+        ixz="-1.89768677355179E-07"
+        iyy="0.000240819753787792"
+        iyz="1.92273635469552E-05"
+        izz="0.000490247449918958" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="C:\Dev's Stuff\Personal Projects\5DOF\Robotic_Sim\New_urdf\meshes\base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.894117647058823 0.894117647058823 0.894117647058823 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="C:\Dev's Stuff\Personal Projects\5DOF\Robotic_Sim\New_urdf\meshes\base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="lowbase_link">
+    <inertial>
+      <origin
+        xyz="-0.00103241383783359 -0.0317249849460651 0.0555416657551581"
+        rpy="0 0 0" />
+      <mass
+        value="0.200480872057476" />
+      <inertia
+        ixx="0.00019279681528675"
+        ixy="1.60069019718569E-06"
+        ixz="-3.08681415574939E-06"
+        iyy="0.000134793104375553"
+        iyz="4.49694064884249E-05"
+        izz="0.000122043029542352" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="C:\Dev's Stuff\Personal Projects\5DOF\Robotic_Sim\New_urdf\meshes\lowbase_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.717647058823529 0.8 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="C:\Dev's Stuff\Personal Projects\5DOF\Robotic_Sim\New_urdf\meshes\lowbase_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Arm Base"
+    type="revolute">
+    <origin
+      xyz="0.14642786540925 -0.345313223765664 0.0226486264747808"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="lowbase_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="shoulder_link">
+    <inertial>
+      <origin
+        xyz="-0.0200970668098287 -0.0788272855207587 0.0426036261850696"
+        rpy="0 0 0" />
+      <mass
+        value="0.2146655122215" />
+      <inertia
+        ixx="0.00136394993411505"
+        ixy="-0.000315904691876098"
+        ixz="3.08173530465723E-06"
+        iyy="0.000140438219078016"
+        iyz="1.27691595040126E-05"
+        izz="0.00148499640916776" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="C:\Dev's Stuff\Personal Projects\5DOF\Robotic_Sim\New_urdf\meshes\shoulder_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 1 0.913725490196078 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="C:\Dev's Stuff\Personal Projects\5DOF\Robotic_Sim\New_urdf\meshes\shoulder_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Arm_shoulder"
+    type="revolute">
+    <origin
+      xyz="-0.00292626396012982 -0.0206841712533281 0.0820000008667041"
+      rpy="-1.57079639498752 0 1.58404315828792" />
+    <parent
+      link="lowbase_link" />
+    <child
+      link="shoulder_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="elbow_link">
+    <inertial>
+      <origin
+        xyz="0.064700896810792 -0.039968821382612 -0.0397338243053548"
+        rpy="0 0 0" />
+      <mass
+        value="0.457257421090071" />
+      <inertia
+        ixx="0.000664862041407653"
+        ixy="0.000833737859630397"
+        ixz="9.84664041576059E-05"
+        iyy="0.00149756023284868"
+        iyz="-6.04497708837109E-05"
+        izz="0.00201984069949788" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="C:\Dev's Stuff\Personal Projects\5DOF\Robotic_Sim\New_urdf\meshes\elbow_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.980392156862745 1 0.780392156862745 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="C:\Dev's Stuff\Personal Projects\5DOF\Robotic_Sim\New_urdf\meshes\elbow_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Arm_elbow"
+    type="revolute">
+    <origin
+      xyz="-0.0510684652682005 -0.213990683609981 0.0308499784133184"
+      rpy="0 0 0" />
+    <parent
+      link="shoulder_link" />
+    <child
+      link="elbow_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="diffleft_link">
+    <inertial>
+      <origin
+        xyz="-7.10820123950295E-06 -2.51767317621665E-06 -0.0145342972643413"
+        rpy="0 0 0" />
+      <mass
+        value="0.0113875438484764" />
+      <inertia
+        ixx="7.83462505393368E-07"
+        ixy="2.42911128851844E-11"
+        ixz="1.04674309141959E-09"
+        iyy="7.8340267946421E-07"
+        iyz="3.70983678866346E-10"
+        izz="1.33805367374814E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="C:\Dev's Stuff\Personal Projects\5DOF\Robotic_Sim\New_urdf\meshes\diffleft_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.894117647058823 0.894117647058823 0.894117647058823 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="C:\Dev's Stuff\Personal Projects\5DOF\Robotic_Sim\New_urdf\meshes\diffleft_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Arm_leftwrist"
+    type="revolute">
+    <origin
+      xyz="0.18708709565262 -0.115751538392659 0"
+      rpy="0 0 -3.14159265358979" />
+    <parent
+      link="elbow_link" />
+    <child
+      link="diffleft_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="diffright_link">
+    <inertial>
+      <origin
+        xyz="-2.13927427542004E-06 -7.23096656846112E-06 -0.0148990338626774"
+        rpy="0 0 0" />
+      <mass
+        value="0.0113875438398241" />
+      <inertia
+        ixx="7.83400235635133E-07"
+        ixy="2.09246426828875E-11"
+        ixz="3.14842261927283E-10"
+        iyy="7.83464948040518E-07"
+        iyz="1.0649766831528E-09"
+        izz="1.33805367272791E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="C:\Dev's Stuff\Personal Projects\5DOF\Robotic_Sim\New_urdf\meshes\diffright_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="C:\Dev's Stuff\Personal Projects\5DOF\Robotic_Sim\New_urdf\meshes\diffright_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Arm_Rightwrist"
+    type="continuous">
+    <origin
+      xyz="0.18709 -0.11575 -0.077706"
+      rpy="3.1416 0 0" />
+    <parent
+      link="elbow_link" />
+    <child
+      link="diffright_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="wristpitch_link">
+    <inertial>
+      <origin
+        xyz="0.00103658728307882 0.000993680968241484 -0.0395273875526877"
+        rpy="0 0 0" />
+      <mass
+        value="0.0050444550130964" />
+      <inertia
+        ixx="4.73107356278028E-07"
+        ixy="1.52750609789527E-09"
+        ixz="2.24431195020005E-12"
+        iyy="4.72982431642552E-07"
+        iyz="-2.34120851177386E-12"
+        izz="4.8822889226828E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="C:\Dev's Stuff\Personal Projects\5DOF\Robotic_Sim\New_urdf\meshes\wristpitch_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.894117647058823 0.894117647058823 0.894117647058823 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="C:\Dev's Stuff\Personal Projects\5DOF\Robotic_Sim\New_urdf\meshes\wristpitch_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Arm_wristoutput"
+    type="revolute">
+    <origin
+      xyz="0.18709 -0.11575 -0.077706"
+      rpy="3.1416 0 0" />
+    <parent
+      link="elbow_link" />
+    <child
+      link="wristpitch_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="wristroll_link">
+    <inertial>
+      <origin
+        xyz="7.09140801635755E-11 -1.74220637916278E-11 -0.00322126376956614"
+        rpy="0 0 0" />
+      <mass
+        value="0.00558888160783594" />
+      <inertia
+        ixx="4.1205084744035E-07"
+        ixy="-2.72611019346957E-18"
+        ixz="1.03811593617883E-15"
+        iyy="4.12050843457476E-07"
+        iyz="-2.45916375658822E-16"
+        izz="7.67490484579758E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="C:\Dev's Stuff\Personal Projects\5DOF\Robotic_Sim\New_urdf\meshes\wristroll_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="C:\Dev's Stuff\Personal Projects\5DOF\Robotic_Sim\New_urdf\meshes\wristroll_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Arm_wristroll"
+    type="continuous">
+    <origin
+      xyz="0.014584 0.013981 -0.039203"
+      rpy="-0.76427 1.5708 0" />
+    <parent
+      link="wristpitch_link" />
+    <child
+      link="wristroll_link" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+</robot>
