@@ -6,6 +6,8 @@
 [Click here or on the image to watch the video]([YOUTUBE_LINK])
 
 
+
+
 I built a custom 5-degree-of-freedom robotic arm, driven by 2 20:1 cycloidal drives and 3 servos. The system achieves a 440mm reach, wih accurate inverse kinematics (IK) and trajectory planning. This setup delivers the reach and ease of use necessary for research applications.
 
 ---
