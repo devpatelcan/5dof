@@ -47,8 +47,9 @@ If a target is out of the arm's physical reach, the terminal will print an error
 
 | Component | Function |
 | :--- | :--- |
-| **[Microcontroller]** | [Role, e.g. main controller coordinating all 5 joints] |
-| **[Motor model] x5** | [Role, e.g. joint actuation] |
+| **ESP32 Wrover Board** | Responsible for communication with FOC boards, servos, and telemetry with command interface.|
+| **5010 BLDC Motor x2** | Base and shoulder joint actuation. |
+| **DS3225 270**|| Elbow joint actuation |
 | **[PSU spec]** | Provides power to all electrical components. |
 | **[Encoder model] x5** | Tracks each joint's angular position. |
 | **[ESC/driver board]** | [Role] |
