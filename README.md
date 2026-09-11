@@ -14,7 +14,7 @@ I built a custom 5-degree-of-freedom robotic arm, driven by 2 20:1 cycloidal dri
 
 ## Try the Simulation
 
-Want to see the arm move before you build it? Run the sim! You can simulate the arms motion using MuJoCo too. Just follow the steps below.
+Want to see the arm move before you build it? Run the sim! You can simulate the arm’s motion using MuJoCo too. Just follow the steps below.
 
 ### 1. Clone the repo (or download as zip)
 ```bash
