@@ -1,18 +1,12 @@
 # 5-DOF Robotic Arm
-<a href="[YOUTUBE_LINK]">
-  <img src="[YOUTUBE_THUMBNAIL_URL]" width="600">
-</a>
 
-[Click here or on the image to watch the video]([YOUTUBE_LINK])
+<img width="562.5" height="750" alt="20260819_220313" src="https://github.com/user-attachments/assets/e7e38184-a4f2-48fd-8ef7-fed7db602751" />
 
-
-
-
-I built a custom 5-degree-of-freedom robotic arm, driven by 2 20:1 cycloidal drives and 3 servos. The system achieves a 440mm reach, wih accurate inverse kinematics (IK) and trajectory planning. This setup delivers the reach and ease of use necessary for research applications.
+I built a custom 5-degree-of-freedom robotic arm, driven by 2 20:1 cycloidal drives and 3 servos. The system achieves a 440mm reach, wih accurate inverse kinematics (IK) and trajectory planning. This setup delivers the reach and ease of use necessary for various applications.
 
 ---
 
-## Try the Simulation
+## Run the Sim!
 
 Want to see the arm move before you build it? Run the sim! You can simulate the arm’s motion using MuJoCo too. Just follow the steps below.
 
@@ -21,6 +15,7 @@ Want to see the arm move before you build it? Run the sim! You can simulate the 
 git clone [https://github.com/devpatelcan/5dof.git]
 cd 5-dof
 ```
+> If cloning does not work, download as zip, extract files, and navigate to the file directory containing project folders (urdf, meshes, etc.) in your terminal.
 
 ### 2. Install dependencies
 ```bash
@@ -51,7 +46,7 @@ If a target is out of the arm's physical reach, the terminal will print an error
 | :--- | :--- |
 | **ESP32 Wrover Board** | Responsible for communication with FOC boards, servos, and telemetry with command interface.|
 | **5010 BLDC Motor x2** | Base and shoulder joint actuation. |
-| **DS3225 270**|| Elbow joint actuation |
+| **DS3225 270**| Elbow joint actuation |
 | **[PSU spec]** | Provides power to all electrical components. |
 | **[Encoder model] x5** | Tracks each joint's angular position. |
 | **[ESC/driver board]** | [Role] |
@@ -62,10 +57,10 @@ If a target is out of the arm's physical reach, the terminal will print an error
 
 | Issue | Resolution / Fix |
 | :--- | :--- |
-| [Issue 1] | [Fix 1] |
-| [Issue 2] | [Fix 2] |
-| [Issue 3] | [Fix 3] |
-| [Issue 4] | [Fix 4] |
+| Robotic arm would slam into table during testing, and would require manual shut-off. | Implemented automatic stall detection through the use of current sensing, position discrepancies, and thermistors. |
+| Discovered a mismatch between coordinate system in arm firmaware, and real-life scenario. | Linked code to a simulation in MuJoCo to mimic simulated movement.  |
+| Elbow servo moved far faster than base and shoulder actuators. | Designed an algorithm to calculate time it takes for cycloidal actuator to move to angle, and adjust the PWM duty cycle accordingly. |
+| A method to control the arm through a custom GUI. | Designed sliders, stopping methods, and activation commands. Also designed to limit data going in and out FOC boards for robotic actuators. |
 
 ---
 
