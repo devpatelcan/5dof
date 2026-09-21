@@ -69,7 +69,7 @@ If a target is out of the arm's physical reach, the terminal will print an error
 
 ## More Pictures and Videos
 
-https://github.com/user-attachments/assets/dd2aeecd-69ad-49ea-b11d-af602bb13293
+https://github.com/user-attachments/assets/3cee493c-4cad-49be-bfc4-cf6142092e35
 
 *MuJoCo simulation of the arm.*
 
@@ -87,6 +87,7 @@ https://github.com/user-attachments/assets/0d206a8f-8fe6-4985-8a2d-9268c4d23881
 > [!NOTE]
 > **Fun Fact: Since the MT6816 communicates via SPI, it is much FASTER than the AS5600, which uses I2C. The MT6816 is approximately 12x faster than the AS5600 encoder!** 
 
-https://github.com/user-attachments/assets/389cef34-45f0-4b12-bf26-214123db1285
+
+https://github.com/user-attachments/assets/77c50f5f-8f70-4125-b3a2-351496e4a2c5
 
 *Initial startup test of the arm. The arm is operated through a custom GUI.*
